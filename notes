@@ -1,0 +1,53 @@
+Project Pitch:
+
+Packr
+
+Packr is an organizational tool to assist an organizer of a trip in giving a list of essential items needed to the trip goers. Organizers
+will be able to build custom lists of items which will become individual to the trip goers so they can check items off as they aquire them,
+add extra items they may need for themselves, and view the list in their entirety.
+
+User Stories:
+
+Organizers can create Trips
+Trip Goers can recieve trips and gear lists
+Organizers can load gear lists to their given trips
+Trip goers can add their own custom items, delete items they create, and check items off of their given list as complete
+
+Data Schema
+
+Organizers will have many trips, and many trip-goers through trips
+Trip-Goers will have many trips, and many organizers through trips
+Trips will belong to Organizers
+Trips will belong to Trip-Goers
+Trips will have many ListItems
+ListItems will belong to a Trip
+
+Organizers
+:id PRIMARY KEY
+:first_name
+:last_name
+:email
+:phone
+
+Trip-Goers
+:id PRIMARY KEY
+:first_name
+:last_name
+:email
+:phone
+
+Trips
+:id PRIMARY KEY
+:title
+:date
+:organizer_id
+:trip_goer_id
+
+ListItems
+:id PRIMARY KEY
+:name
+:quantity
+:description
+:trip_id
+
+
