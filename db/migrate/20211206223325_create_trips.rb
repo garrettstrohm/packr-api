@@ -3,7 +3,8 @@ class CreateTrips < ActiveRecord::Migration[6.1]
     create_table :trips do |t|
       t.string :title
       t.date :date
-      
+      t.text :description
+      t.references :organizer
     end
   end
 end
