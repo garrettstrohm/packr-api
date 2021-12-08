@@ -4,7 +4,7 @@ class CreateTrips < ActiveRecord::Migration[6.1]
       t.string :title
       t.date :date
       t.text :description
-      t.references :organizer
+      t.references :user
     end
   end
 end

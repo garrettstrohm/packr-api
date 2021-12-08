@@ -1,5 +1,4 @@
 class TripItem < ActiveRecord::Base
-    has_many :items
     belongs_to :trip
 
     def item_desc

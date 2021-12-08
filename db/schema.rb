@@ -19,16 +19,11 @@ ActiveRecord::Schema.define(version: 2021_12_06_232106) do
     t.index ["user_id"], name: "index_adventures_on_user_id"
   end
 
-  create_table "items", force: :cascade do |t|
-    t.text "name"
-    t.text "description"
-  end
-
   create_table "trip_items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
     t.integer "quantity"
     t.integer "trip_id"
-    t.integer "item_id"
-    t.index ["item_id"], name: "index_trip_items_on_item_id"
     t.index ["trip_id"], name: "index_trip_items_on_trip_id"
   end
 
@@ -36,8 +31,8 @@ ActiveRecord::Schema.define(version: 2021_12_06_232106) do
     t.string "title"
     t.date "date"
     t.text "description"
-    t.integer "organizer_id"
-    t.index ["organizer_id"], name: "index_trips_on_organizer_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
