@@ -2,9 +2,10 @@ class Adventure < ActiveRecord::Base
     belongs_to :user
     belongs_to :trip
 
-    def find_users_adventures(user_id)
-        adventures = Adventure.where(user_id: user_id)
-        
+    def find_trip_host
+        trip = Trip.find(self.trip_id)
+        user = User.find(trip.user_id)
+        user
     end
 
 end
