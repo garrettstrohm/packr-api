@@ -13,8 +13,13 @@ class UserController < Sinatra::Base
     end
 
     post '/users' do
-        new_user = User.first_or_create(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone])
+        find_user = User.find_by(username: params[:username])
+        if find_user == nil
+        new_user = User.create(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone])
         new_user.to_json
+        else 
+            "This username already exists".to_json
+        end
     end
 
 end
